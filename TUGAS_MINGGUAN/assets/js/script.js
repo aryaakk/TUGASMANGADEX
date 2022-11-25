@@ -76,15 +76,15 @@ async function Search() {
         main.style.display = "none"
         notFound.style.display = "flex"
     }
-    else{
-        await paramSearch(se)
+    else {
+        paramSearch(se)
         let close = document.querySelector('.close')
         close.style.display = 'flex'
     }
 }
 
 function Close() {
-    window.location.reload()  
+    window.location.reload()
 }
 
 function paginNum() {
@@ -123,8 +123,25 @@ function param2(x, y) {
     mangData(`https://api.mangadex.org/manga?offset=${x}&limit=${y}&includes[]=cover_art`)
 }
 
-function paramSearch(n) {
-    mangData(`https://api.mangadex.org/manga?offset=1&limit=6&includes[]=cover_art&title=${n}`)
+async function paramSearch(n) {
+    let y = Number(document.getElementById("numPagin").value)
+    let url = `https://api.mangadex.org/manga?offset=1&limit=${y}&includes[]=cover_art&title=${n}`
+    let titleData
+    await fetch(url).then((response) => {
+        return response.json()
+    }).then((data) => { titleData = data })
+    console.log(titleData)
+    if(titleData.total == 0){
+        alert("Pencarian Tidak Ditemukan")
+        let close = document.querySelector('.close')
+        close.style.display = 'flex'
+        let main = document.querySelector('.containerr')
+        let notFound = document.querySelector('.notFound')
+        main.style.display = "none"
+        notFound.style.display = "flex"
+    }else{
+        mangData(url)
+    }
 }
 
 async function mangData(file) {
@@ -157,8 +174,7 @@ async function mangData(file) {
         else {
             desc = mangaData[i].attributes.description.en
         }
-        if (mangaData[i])
-            divCard += `
+        divCard += `
         <div>
             <div class="header">
                 <span>${title}</span>
