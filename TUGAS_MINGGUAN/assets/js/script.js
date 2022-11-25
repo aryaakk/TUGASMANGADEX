@@ -79,7 +79,7 @@ async function Search() {
 }
 
 function Close() {
-    window.location.reload()
+    window.location.reload()  
 }
 
 function paginNum() {
