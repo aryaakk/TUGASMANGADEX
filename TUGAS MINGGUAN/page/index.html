@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeerM Website</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <script src="../assets/js/bootstrap.bundle.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <section>
+        <header>
+            <nav>
+                <div class="header">
+                    <span class="main">LeeR<b>M</b></span>
+                </div>
+                <div style="background-color:transparent; " class="wrapper">
+                    <input placeholder="Search Manga" type="text" id="SearchButton">
+                    <button onclick="Close()" class="close">
+                        <i class='bx bx-x bx-tada-hover'></i>
+                    </button>
+                    <button onclick="Search()" class="search">
+                        <i class='bx bx-search-alt bx-tada-hover'></i>
+                    </button>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="containerr">
+                <div id="body-column" class="roww">
+
+                </div>
+            </div>
+            <div class="notFound">
+                
+            </div>
+        </main>
+        <footer>
+            <div class="prev">
+                <button onclick="prev()">
+                    <i class='bx bx-chevrons-left'></i>
+                    <span>PREV</span>
+                </button>
+            </div>
+            <div class="inputnumberPagin">
+                <input class="inp-num" id="numPagin" value="6" onchange="paginNum()" type="number" id="">
+            </div>
+            <div class="next">
+                <button onclick="next()">
+                    <span>NEXT</span>
+                    <i class='bx bx-chevrons-right' ></i>
+                </button>
+            </div>
+        </footer>
+    </section>
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>
