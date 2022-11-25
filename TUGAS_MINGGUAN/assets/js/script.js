@@ -67,13 +67,19 @@ param1(x)
 async function Search() {
     let se = document.getElementById("SearchButton").value
     console.log(se)
-    await paramSearch(se)
-    let close = document.querySelector('.close')
-    close.style.display = 'flex'
+    if (se == "") {
+        alert("Pencarian Tidak Ditemukan")
+        // let notFound = 
+    }
+    else{
+        await paramSearch(se)
+        let close = document.querySelector('.close')
+        close.style.display = 'flex'
+    }
 }
 
 function Close() {
-    
+    window.Location.reload()
 }
 
 function paginNum() {
@@ -113,14 +119,7 @@ function param2(x, y) {
 }
 
 function paramSearch(n) {
-    let x = 0
-    if (n == "") {
-        alert("Pencarian Tidak Ditemukan")
-        // let notFound = 
-    }
-    else {
-        mangData(`https://api.mangadex.org/manga?offset=1&limit=6&includes[]=cover_art&title=${n}`)
-    }
+    mangData(`https://api.mangadex.org/manga?offset=1&limit=6&includes[]=cover_art&title=${n}`)
 }
 
 async function mangData(file) {
