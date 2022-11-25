@@ -69,7 +69,8 @@ async function Search() {
     console.log(se)
     if (se == "") {
         alert("Pencarian Tidak Ditemukan")
-        // let notFound = 
+        let notFound = document.querySelector('.notFound')
+        notFound.style.display = "flex"
     }
     else{
         await paramSearch(se)

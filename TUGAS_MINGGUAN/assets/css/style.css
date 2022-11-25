@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+:root{
+    --font : 'Acme', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -126,7 +132,6 @@ header nav{
 main .containerr {
     display: block;
     padding: 9% 5% 6% 5%;
-    /* display: none; */
 }
 
 .containerr .roww {
@@ -231,6 +236,34 @@ main .containerr {
 
 .containerr .roww div .desc textarea::-webkit-scrollbar-thumb{
     border-radius: 0 30px 30px 0
+}
+
+main .notFound{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10% 0 10% 0;
+}
+
+.notFound .logo img{
+    width: 10rem;
+    filter: brightness(65%);
+    background: transparent;
+}
+
+.notFound .main span{
+    font-size: 40px;
+    color: #efefef92;
+    font-family: var(--font);
+    letter-spacing: 10px;
+}
+.notFound .main p{
+    font-size: 20px;
+    text-align: center;
+    color: #efefef92;
+    font-family: var(--font);
+    /* letter-spacing: 10px; */
 }
 
 ::-webkit-scrollbar {
