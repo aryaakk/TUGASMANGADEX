@@ -68,13 +68,9 @@ async function Search() {
     let se = document.getElementById("SearchButton").value
     console.log(se)
     if (se == "") {
-        alert("Pencarian Tidak Ditemukan")
-        let close = document.querySelector('.close')
-        close.style.display = 'flex'
-        let main = document.querySelector('.containerr')
-        let notFound = document.querySelector('.notFound')
-        main.style.display = "none"
-        notFound.style.display = "flex"
+        alert("FORM SEARCH MUST BE FILL")
+        param1(x)
+        // Search()
     }
     else {
         paramSearch(se)
@@ -131,14 +127,17 @@ async function paramSearch(n) {
         return response.json()
     }).then((data) => { titleData = data })
     console.log(titleData)
-    if(titleData.total == 0){
+    if(titleData.total <= 0){
         alert("Pencarian Tidak Ditemukan")
         let close = document.querySelector('.close')
-        close.style.display = 'flex'
         let main = document.querySelector('.containerr')
+        let mainNot = document.getElementById("main")
         let notFound = document.querySelector('.notFound')
+        mainNot.style.height = "100vh"
+        close.style.display = 'flex'
         main.style.display = "none"
         notFound.style.display = "flex"
+        mangData(url)
     }else{
         mangData(url)
     }
