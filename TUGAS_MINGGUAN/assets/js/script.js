@@ -69,7 +69,11 @@ async function Search() {
     console.log(se)
     if (se == "") {
         alert("Pencarian Tidak Ditemukan")
+        let close = document.querySelector('.close')
+        close.style.display = 'flex'
+        let main = document.querySelector('.containerr')
         let notFound = document.querySelector('.notFound')
+        main.style.display = "none"
         notFound.style.display = "flex"
     }
     else{
