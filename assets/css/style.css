@@ -519,6 +519,25 @@ footer .next button i {
     nav .header a.main{
         font-size: 30px;
     }
+
+    footer{
+        padding: 10px 1rem;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    footer .prev span{
+        display: none;
+    }
+    footer .next span{
+        display: none;
+    }
+
+    footer .inputnumberPagin .inp-num{
+        width: 90px;
+        text-align: center;
+        padding: 2px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -569,10 +588,4 @@ footer .next button i {
     nav .header a.main{
         font-size: 30px;
     }
-}
-
-/* mobilr device spesifik */
-
-@media (max-width: 1024px) ( max-height: 768px) {
-
 }

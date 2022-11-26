@@ -85,19 +85,36 @@ function Close() {
 
 function paginNum() {
     let y = document.getElementById("numPagin").value
-    param1(y)
+    let se = document.getElementById("SearchButton").value
+    if (se != "") {
+        paramSearch(se)
+        let close = document.querySelector('.close')
+        close.style.display = 'flex'
+    }
+    else {
+        param1(y)
+    }
 }
 
 let n = 1
 function next() {
     let y = Number(document.getElementById("numPagin").value)
+    let se = document.getElementById("SearchButton").value
     // console.log(y)
     n += y
-    console.log(n)
-    param2(n, y)
+    if (se != "") {
+        paramSearch(se, n)
+        let close = document.querySelector('.close')
+        close.style.display = 'flex'
+    }
+    else {
+        console.log(n)
+        param2(n, y)
+    }
 }
 function prev() {
     let y = Number(document.getElementById("numPagin").value)
+    let se = document.getElementById("SearchButton").value
     // console.log(y)
     n -= y
     if (n < 1) {
@@ -106,6 +123,16 @@ function prev() {
         param2(n, y)
     }
     else {
+        param2(n, y)
+    }
+
+    if (se != "") {
+        paramSearch(se, n)
+        let close = document.querySelector('.close')
+        close.style.display = 'flex'
+    }
+    else {
+        console.log(n)
         param2(n, y)
     }
     console.log(n)
@@ -119,26 +146,35 @@ function param2(x, y) {
     mangData(`https://api.mangadex.org/manga?offset=${x}&limit=${y}&includes[]=cover_art`)
 }
 
-async function paramSearch(n) {
+async function paramSearch(n, offset = 1) {
     let y = Number(document.getElementById("numPagin").value)
-    let url = `https://api.mangadex.org/manga?offset=1&limit=${y}&includes[]=cover_art&title=${n}`
+    let url = `https://api.mangadex.org/manga?offset=${offset}&limit=${y}&includes[]=cover_art&title=${n}`
     let titleData
     await fetch(url).then((response) => {
         return response.json()
     }).then((data) => { titleData = data })
     console.log(titleData)
-    if(titleData.total <= 0){
+    if (titleData.total <= 0) {
         alert("Pencarian Tidak Ditemukan")
         let close = document.querySelector('.close')
         let main = document.querySelector('.containerr')
         let mainNot = document.getElementById("main")
         let notFound = document.querySelector('.notFound')
+        let search = document.querySelector('.search')
         mainNot.style.height = "100vh"
         close.style.display = 'flex'
         main.style.display = "none"
         notFound.style.display = "flex"
-        mangData(url)
-    }else{
+        search.addEventListener('click', (e)=>{
+            e.preventDefault()
+            mainNot.style.height = "auto"
+            close.style.display = 'flex'
+            main.style.display = "block"
+            notFound.style.display = "none"
+            mangData(url)
+
+        });
+    } else {
         mangData(url)
     }
 }
