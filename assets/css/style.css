@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
-:root{
-    --font : 'Acme', sans-serif;
+:root {
+    --font: 'Acme', sans-serif;
 }
 
 * {
@@ -15,14 +15,14 @@ body {
     scroll-behavior: smooth;
 }
 
-section{
+section {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     /* align-items: center; */
 }
 
-header nav{
+header nav {
     background-color: #669bbcda;
     backdrop-filter: blur(10px);
     width: 100%;
@@ -38,34 +38,35 @@ header nav{
     border-radius: 0 0 10px 10px;
 }
 
-.header{
+.header {
     background-color: transparent;
 }
 
-.header a.main{
+.header a.main {
     background-color: transparent;
     font-size: 40px;
     font-weight: bold;
     text-decoration: none;
+    text-align: center;
     color: #e0e1dd;
     letter-spacing: 5px;
     font-family: var(--font);
 
-}   
+}
 
-.header a.main b{
+.header a.main b {
     background-color: transparent;
     color: #023E7D;
     font-weight: bold;
 }
 
-.wrapper{
+.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.wrapper input{
+.wrapper input {
     background-color: #e0e1dd;
     border: none;
     outline: none;
@@ -78,18 +79,18 @@ header nav{
     transition: 0.2s;
 }
 
-.wrapper input:hover{
+.wrapper input:hover {
     box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.451);
     transform: scale(1.05);
 
 }
 
-.wrapper input:focus{
+.wrapper input:focus {
     box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.451);
     transform: scale(1.05);
 }
 
-.wrapper .close{
+.wrapper .close {
     z-index: 99;
     display: none;
     align-items: center;
@@ -105,17 +106,17 @@ header nav{
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.256);
 }
 
-.wrapper .close:hover{
+.wrapper .close:hover {
     background-color: #118ab2;
 }
 
-.wrapper .close i{
+.wrapper .close i {
     color: #252525;
     font-size: 30px;
     background-color: transparent;
 }
 
-.wrapper .search{
+.wrapper .search {
     z-index: 99;
     display: flex;
     align-items: center;
@@ -131,22 +132,40 @@ header nav{
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.256);
 }
 
-.wrapper .search:hover{
+.wrapper .search:hover {
     background-color: #118ab2;
 }
 
-.wrapper .search:focus{
+.wrapper .search:focus {
     background-color: #118ab2;
 }
 
-.wrapper .search i{
+.wrapper .search i {
     color: #252525;
     font-size: 30px;
     background-color: transparent;
 }
 
-main{
-    padding: 5rem 7rem;
+nav .hamburg {
+    background-color: transparent;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    color: #0d1b2a;
+}
+
+.hamburg .menuu {
+    background-color: transparent;
+}
+
+.hamburg .closee {
+    display: none;
+    background-color: transparent;
+}
+
+main {
+    padding: 6rem 1rem;
 }
 
 main .containerr {
@@ -155,7 +174,7 @@ main .containerr {
 
 .containerr .roww {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     justify-content: center;
     gap: 20px;
 }
@@ -185,6 +204,8 @@ main .containerr {
     background-color: transparent;
     color: #efefef;
     text-align: center;
+    font-size: 20px;
+    font-family: var(--font);
 }
 
 .roww div .image {
@@ -201,7 +222,7 @@ main .containerr {
     transition: 0.3s;
 }
 
-.roww div .image img:hover{
+.roww div .image img:hover {
     transform: scale(1.20);
     filter: brightness(40%);
 }
@@ -226,12 +247,12 @@ main .containerr {
     background: #669bbc;
 }
 
-.containerr .roww div .desc{
+.containerr .roww div .desc {
     padding: 0;
     width: 100%;
 }
 
-.containerr .roww div .desc textarea{
+.containerr .roww div .desc textarea {
     width: 100%;
     height: 200px;
     padding: 10px;
@@ -243,21 +264,21 @@ main .containerr {
     border-radius: 10px 5px 5px 10px;
 }
 
-.containerr .roww div .desc textarea::-webkit-scrollbar{
+.containerr .roww div .desc textarea::-webkit-scrollbar {
     width: 5px;
 }
 
-.containerr .roww div .desc textarea::-webkit-scrollbar-track{
+.containerr .roww div .desc textarea::-webkit-scrollbar-track {
     border-radius: 0 30px 30px 0;
     /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.795); */
     background: #1b263b;
 }
 
-.containerr .roww div .desc textarea::-webkit-scrollbar-thumb{
+.containerr .roww div .desc textarea::-webkit-scrollbar-thumb {
     border-radius: 0 30px 30px 0
 }
 
-main .notFound{
+main .notFound {
     display: none;
     justify-content: center;
     align-items: center;
@@ -265,19 +286,20 @@ main .notFound{
     height: 100%;
 }
 
-.notFound .logo img{
+.notFound .logo img {
     width: 10rem;
     filter: brightness(65%);
     background: transparent;
 }
 
-.notFound .main span{
+.notFound .main span {
     font-size: 40px;
     color: #efefef92;
     font-family: var(--font);
     letter-spacing: 10px;
 }
-.notFound .main p{
+
+.notFound .main p {
     font-size: 20px;
     text-align: center;
     color: #efefef92;
@@ -289,7 +311,7 @@ main .notFound{
     width: 10px;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     border-radius: 20px;
     background: #042f49;
 }
@@ -300,7 +322,7 @@ main .notFound{
     background: #1b263b;
 }
 
-footer{
+footer {
     bottom: 0;
     width: 100%;
     height: 55px;
@@ -314,77 +336,243 @@ footer{
     align-items: center;
 }
 
-footer .inputnumberPagin{
+footer .inputnumberPagin {
     background-color: transparent;
 }
 
-footer .inputnumberPagin .inp-num{
+footer .inputnumberPagin .inp-num {
     background-color: #e0e1dd;
     width: 100px;
     outline: none;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
     height: 30px;
     font-size: 20px;
-    padding: 10px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
 }
 
-footer .inputnumberPagin .inp-num::-webkit-inner-spin-button{
+footer .inputnumberPagin .inp-num::-webkit-inner-spin-button {
     width: 40px;
 }
 
-footer .prev button{
+footer .prev button {
     background-color: #118ab2;
     border: none;
     outline: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 15px;
-    padding: 10px 20px;
+    padding: 5px 10px;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    justify-content: center;
     color: #252525;
     font-weight: bold;
     transition: 0.2s;
 }
 
-footer .prev button span{
+footer .prev button span {
     background-color: transparent;
 }
 
-footer .prev button i{
+footer .prev button i {
     background-color: #118ab2;
     font-size: 20px;
 }
 
-footer .prev button:hover{
-    color: #efefef;
-}
-footer .next button:hover{
+footer .prev button:hover {
     color: #efefef;
 }
 
-footer .next button{
+footer .next button:hover {
+    color: #efefef;
+}
+
+footer .next button {
     background-color: #118ab2;
     border: none;
     outline: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 15px;
-    padding: 10px 20px;
+    padding: 5px 10px;
     display: flex;
-    align-items: center;
+    justify-content: center;
     color: #252525;
     font-weight: bold;
     transition: 0.2s;
 }
 
-footer .next button span{
+footer .next button span {
     background-color: transparent;
 }
 
 
-footer .next button i{
+footer .next button i {
     background-color: #118ab2;
     font-size: 20px;
+}
+
+@media (max-width: 281px) {
+    header nav {
+        width: 100%;
+        padding: 5px;
+    }
+
+    nav .header a.main {
+        font-size: 30px;
+    }
+
+    #main {
+        padding: 5rem 1rem;
+    }
+
+    .containerr .roww {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .containerr .roww div {
+        background-color: #778da9;
+        padding: 3%;
+        display: flex;
+        margin: 0px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 10px;
+        /* height: 30rem; */
+    }
+
+    .roww div .image {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        width: 200px;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .containerr .roww {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        justify-content: center;
+        gap: 20px;
+    }
+    main{
+        padding: 5rem 1rem;
+    }
+
+    header nav{
+        padding: 10px 20px;
+    }
+
+    nav .header a.main{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 375px) {
+
+    .containerr .roww {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        justify-content: center;
+        gap: 20px;
+    }
+    main{
+        padding: 5rem 1rem;
+    }
+
+    header nav{
+        padding: 10px 20px;
+    }
+
+    nav .header a.main{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 425px) {
+
+    .containerr .roww {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        justify-content: center;
+        gap: 20px;
+    }
+    main{
+        padding: 6rem 1rem;
+    }
+
+    header nav{
+        padding: 10px 20px;
+    }
+
+    nav .header a.main{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav .wrapper {
+        display: none;
+    }
+
+    nav .hamburg {
+        display: flex;
+    }
+
+    .containerr .roww {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        justify-content: center;
+        gap: 20px;
+    }
+
+    main{
+        padding: 6rem 1rem;
+    }
+
+    header nav{
+        padding: 10px 20px;
+    }
+
+    nav .header a.main{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .containerr .roww {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    main{
+        padding: 6rem 1rem;
+    }
+
+    header nav{
+        padding: 10px 20px;
+    }
+
+    nav .header a.main{
+        font-size: 30px;
+    }
+}
+
+/* mobilr device spesifik */
+
+@media (max-width: 1024px) ( max-height: 768px) {
+
 }
