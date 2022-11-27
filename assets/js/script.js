@@ -34,19 +34,24 @@ function paginNum() {
 }
 
 let n = 1
+let i = 1
 function next() {
     let y = Number(document.getElementById("numPagin").value)
     let se = document.getElementById("SearchButton").value
     // console.log(y)
     n += y
+    i += 1
     if (se != "") {
         paramSearch(se, n)
         let close = document.querySelector('.close')
         close.style.display = 'flex'
+        document.getElementById('page').innerHTML = i
+        console.log(i)
     }
     else {
         console.log(n)
         param2(n, y)
+        document.getElementById('page').innerHTML = i
     }
 }
 function prev() {
@@ -54,15 +59,18 @@ function prev() {
     let se = document.getElementById("SearchButton").value
     // console.log(y)
     n -= y
-    if (n < 1) {
+    i -= 1
+    if (n < 1 && i < 1) {
         alert("SUDAH MELEWATI BATAS HALAMAN")
         n = 1
+        i = 1
         param2(n, y)
     }
     else {
+        document.getElementById('page').innerHTML = i
         param2(n, y)
     }
-
+    
     if (se != "") {
         paramSearch(se, n)
         let close = document.querySelector('.close')
@@ -114,10 +122,11 @@ async function paramSearch(n, offset = 1) {
     } else {
         mangData(url)
     }
-
-    // if (titleData.data.length == 0) {
-    //     alert("PENCARIAN SUDAH MENCAPAI BATAS!!")
-    // }
+    if (titleData.data.length == 0) {
+        alert("DATA PENCARIAN SUDAH TIDAK ADA!!")
+        i = i
+        document.getElementById('page').innerHTML = i
+    }
 }
 
 async function mangData(file) {
@@ -144,7 +153,7 @@ async function mangData(file) {
             title = mangaData[i].attributes.title.en
         }
 
-        if (mangaData[i].attributes.description.en == null) {
+        if (mangaData[i].attributes.description.en == null || mangaData[i].attributes.description.en == "") {
             desc = "NO DESCRIPTION"
         }
         else {

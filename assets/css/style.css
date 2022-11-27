@@ -211,6 +211,19 @@ main {
     padding: 6rem 1rem;
 }
 
+main .header-page{
+    padding: 0 0 20px 0;
+    margin: 0;
+    font-family: var(--font);
+}
+
+main .header-page .page{
+    margin: 0;
+    color: #e0e1dd;
+    letter-spacing: 4px;
+    font-size: 20px;
+}
+
 main .containerr {
     display: block;
 }
