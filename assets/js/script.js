@@ -1,66 +1,3 @@
-// mangData("https://api.mangadex.org/manga?offset=1&limit=12&includes[]=cover_art&contentRating[]=safe")
-// let x = Number(document.getElementById("numPagin").value)
-// mangData("https://api.mangadex.org/manga?offset=1&limit=" + x + "&includes[]=cover_art")
-
-// function paginNum() {
-//     let x = document.getElementById("numPagin").value
-//     mangData("https://api.mangadex.org/manga?offset=1&limit=" + x + "&includes[]=cover_art")
-// }
-
-// let n = 1
-// function next() {
-//     let y = Number(document.getElementById("numPagin").value)
-//     // console.log(y)
-//     n += y
-//     console.log(n)
-//     mangData("https://api.mangadex.org/manga?offset=" + n + "&limit=" + y + "&includes[]=cover_art")
-// }
-// function prev() {
-//     let y = Number(document.getElementById("numPagin").value)
-//     // console.log(y)
-//     n -= y
-//     if(n < 1){
-//         mangData("https://api.mangadex.org/manga?offset=1&limit="+ y +"&includes[]=cover_art")
-//         alert("SUDAH MELEWATI BATAS HALAMAN")
-//         n = 1
-//     }
-//     else{
-//         mangData("https://api.mangadex.org/manga?offset=" + n + "&limit="+ y +"&includes[]=cover_art")
-//     }
-//     console.log(n)
-// }
-
-// async function mangData(file) {
-//     let mangaData
-//     let imgManga
-//     let wrapDiv = document.getElementById("body-column")
-//     let divCard = ''
-//     await fetch(file).then((response) => {
-//         return response.json()
-//     }).then((data) => { mangaData = data.data })
-//     console.log(mangaData)
-//     for (let i = 0; i < mangaData.length; i++) {
-//         for (let j = 0; j < mangaData[i].relationships.length; j++) {
-//             if (mangaData[i].relationships[j].type == "cover_art") {
-//                 imgManga = "https://uploads.mangadex.org/covers/" + mangaData[i].id + "/" + mangaData[i].relationships[j].attributes.fileName
-//             }
-//         }
-//         divCard += `
-//         <div>
-//             <div class="header">
-//                 <span>${mangaData[i].attributes.title.en}</span>
-//             </div>
-//             <div class="image">
-//                 <img src="${imgManga}" alt="">
-//             </div>
-//             <div class="desc">
-//                 <textarea readonly>${mangaData[i].attributes.description.en}</textarea>
-//             </div>
-//         </div>`
-//         wrapDiv.innerHTML = divCard
-//     }
-// }
-
 let x = Number(document.getElementById("numPagin").value)
 param1(x)
 
@@ -154,7 +91,7 @@ async function paramSearch(n, offset = 1) {
         return response.json()
     }).then((data) => { titleData = data })
     console.log(titleData)
-    if (titleData.total <= 0) {
+    if (titleData.total <= 1) {
         alert("Pencarian Tidak Ditemukan")
         let close = document.querySelector('.close')
         let main = document.querySelector('.containerr')
@@ -165,7 +102,7 @@ async function paramSearch(n, offset = 1) {
         close.style.display = 'flex'
         main.style.display = "none"
         notFound.style.display = "flex"
-        search.addEventListener('click', (e)=>{
+        search.addEventListener('click', (e) => {
             e.preventDefault()
             mainNot.style.height = "auto"
             close.style.display = 'flex'
@@ -177,6 +114,10 @@ async function paramSearch(n, offset = 1) {
     } else {
         mangData(url)
     }
+
+    // if (titleData.data.length == 0) {
+    //     alert("PENCARIAN SUDAH MENCAPAI BATAS!!")
+    // }
 }
 
 async function mangData(file) {
